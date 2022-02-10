@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>zomato master</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+<!--
+<img src=
+"https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/news14109.jpg"
+         alt="zomato image", width="400", height="150", style="float:left">
+
+<img src=
+https://totaldatascience.com/wp-content/uploads/2019/10/TOTAL-1.png"
+         alt="zomato image", width="200", height="70", style="float:right">
+
+  background-image: url("https://images.pexels.com/photos/952356/pexels-photo-952356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  -->
+
+
+
+<style>
+body {
+
+  background-image:url("https://entrackr.com/wp-content/uploads/2020/01/Zomato-1200x527.jpg");
+  background-position: 200%;
+   background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  text-align: center;
+
+}
+ #formData {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+  #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+
+</style>
+
+
+
+ <div class="login">
+	<h2 style="font-size:50%;>Predict Zomato Restaurant Ratings</h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" >
+    	<input type="text" name="Online Order" placeholder="Order Online" id="formData" required="required"  /> <br><br>
+        <input type="text" name="Book Table" placeholder="Book Table" id="formData" required="required" /> <br><br>
+		<input type="text" name="Votes" placeholder="Votes" id="formData" required="required" /> <br><br>
+        <input type="text" name="Location" placeholder="Location" id="formData" required="required" /> <br><br>
+        <input type="text" name="Restaurant Type" placeholder="Restaurant Type" id="formData" required="required" /> <br><br>
+        <input type="text" name="Cuisines" placeholder="Cuisines" id="formData" required="required" /> <br><br>
+        <input type="text" name="Cost" placeholder="Cost" id="formData" required="required" /> <br><br>
+        <input type="text" name="Menu Item" placeholder="Menu Item" id="formData" required="required" /> <br><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" id="sub" >Predict</button>
+    </form>
+
+   <br>
+   <br>
+     <h3 style="color:black;"> {{ prediction_text }} </h3>
+
+
+ </div>
+
+
+</body>
+</html>
